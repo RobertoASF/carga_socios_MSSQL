@@ -1,6 +1,6 @@
 import os
 archivo = 'socios_nuevos_20231230.csv'
-clean_csv = 'clean_socios_nuevos_20231230.csv'
+clean_csv = 'clean_' + archivo
 headers = "nombre,rut,mail,celular,fecha_nacimiento,obra,fechadonacion,comuna,captador,monto,moneda,mediopago"
 
 
