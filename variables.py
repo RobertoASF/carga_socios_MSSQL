@@ -11,63 +11,20 @@ ftp_username = os.getenv('FTP_USER')
 ftp_password = os.getenv('FTP_PASS')
 dir_entrada = 'upload/Reporte Socios/'
 fecha = datetime.now().strftime("%Y%m%d")
-archivo = f'socios_nuevos_{fecha}.csv'
+archivo = 'socios_nuevos_20231228.csv'
+#archivo = f'socios_nuevos_{fecha}.csv'
 sql_server = os.getenv('SQL_IP')
 database = os.getenv('SQL_DATABASE')
 sql_username = 'sa'
 sql_password = os.getenv('SQL_PASS')
-table_name = 'usuarios'
+table_name = 'contact'
 driver = 'ODBC Driver 17 for SQL Server'
 
-campos = ['Id', 'new_canal', 'new_suscriptorrmactiva', 'new_region', 'new_ciudad', 'modifiedby', 'new_pais',
-              'new_comuna', 'new_nombrerepresentantelegal', 'mobilephone', 'accountidyominame', 'address1_line1',
-              'modifiedonbehalfbyname', 'new_girodelaempresa', 'birthdate', 'createdon', 'emailaddress1', 'firstname',
-              'modifiedon', 'versionnumber', 'new_rutdelrepresentantelegal', 'modifiedonbehalfbyyominame', 'fullname',
-              'lastname', 'new_rut']
-
-old_insert = """INSERT INTO [dbo].[contact] 
-            ([Id]
-           ,[new_canal]
-           ,[new_suscriptorrmactiva]
-           ,[new_region]
-           ,[new_ciudad]
-           ,[modifiedby]
-           ,[new_pais]
-           ,[new_comuna]
-           ,[new_nombrerepresentantelegal]
-           ,[mobilephone]
-           ,[accountidyominame]
-           ,[address1_line1]
-           ,[modifiedonbehalfbyname]
-           ,[new_girodelaempresa]
-           ,[birthdate]
-           ,[createdon]
-           ,[emailaddress1]
-           ,[firstname]
-           ,[modifiedon]
-           ,[versionnumber]
-           ,[new_rutdelrepresentantelegal]
-           ,[modifiedonbehalfbyyominame]
-           ,[fullname]
-           ,[lastname]
-           ,[new_rut]) VALUES (
-           """
-
-insert = """
-INSERT INTO [dbo].[contact] (
-    [Id], [new_canal], [new_suscriptorrmactiva], [new_region], [new_ciudad], 
-    [modifiedby], [new_pais], [new_comuna], [new_nombrerepresentantelegal], 
-    [mobilephone], [accountidyominame], [address1_line1], [modifiedonbehalfbyname], 
-    [new_girodelaempresa], [birthdate], [createdon], [emailaddress1], [firstname], 
-    [modifiedon], [versionnumber], [new_rutdelrepresentantelegal], 
-    [modifiedonbehalfbyyominame], [fullname], [lastname], [new_rut]
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-"""
 
 
 def new_id() -> str:
     unique_id = str(uuid.uuid4())
-    return unique_id
+    return "'" + unique_id + "'"
 
 
 def getdate():

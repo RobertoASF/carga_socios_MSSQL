@@ -1,5 +1,6 @@
 import os
-archivo = 'socios_nuevos_20231230.csv'
+from variables import *
+
 clean_csv = 'clean_' + archivo
 headers = "nombre,rut,mail,celular,fecha_nacimiento,obra,fechadonacion,comuna,captador,monto,moneda,mediopago"
 

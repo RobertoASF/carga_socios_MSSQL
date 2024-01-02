@@ -1,8 +1,7 @@
-import os
 import pysftp
 from variables import *
 
-archivo = 'socios_nuevos_20231230.csv'
+
 cnopts = pysftp.CnOpts()
 cnopts.hostkeys = None
 
