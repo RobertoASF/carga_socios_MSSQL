@@ -20,12 +20,12 @@
   ```
   python --version
   ```
-  Esto devería devolver la versión de Python que está instalda
+  Esto devería devolver la versión de Python que está instalada
 
 
 * Instalación de librerías de Python:
 
-  1. abrir una terminal en el directorio del proeycto
+  1. abrir una terminal en el directorio del proyecto
   2. ejecutar el siguiente comando 
 
 
