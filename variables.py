@@ -5,14 +5,14 @@ import os
 
 load_dotenv()
 
-dir_descarga = '/home/roberto/Documentos/workspaces/Jesuitas'
+dir_descarga = os.getenv('DIR_DESCARGA')
 ftp_hostname = os.getenv('FTP_IP')
 ftp_username = os.getenv('FTP_USER')
 ftp_password = os.getenv('FTP_PASS')
 dir_entrada = 'upload/Reporte Socios/'
 fecha = datetime.now().strftime("%Y%m%d")
-archivo = 'socios_nuevos_20231228.csv'
-#archivo = f'socios_nuevos_{fecha}.csv'
+#archivo = 'socios_nuevos_20231228.csv'
+archivo = f'socios_nuevos_{fecha}.csv'
 sql_server = os.getenv('SQL_IP')
 database = os.getenv('SQL_DATABASE')
 sql_username = 'sa'
@@ -33,7 +33,7 @@ def getdate():
     return "'" + str(formatted_time) + "'"
 
 
-def format_rut(rut) -> str:
+def format_rut(rut: str) -> str:
     dv = rut[-1]
     if len(rut) == 9:
         num_rut = rut[0:2] + "." + rut[2:5] + "." + rut[5:8]

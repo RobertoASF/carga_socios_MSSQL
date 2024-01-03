@@ -1,10 +1,13 @@
-import pysftp
+import pysftp,sys
 from variables import *
 
 
 cnopts = pysftp.CnOpts()
 cnopts.hostkeys = None
 
+if len(sys.argv) >= 2:
+    fecha = sys.argv[1]
+    archivo = f'socios_nuevos_{fecha}.csv'
 
 def valida_archivo() -> bool:
     with pysftp.Connection(ftp_hostname, username=ftp_username, password=ftp_password, cnopts=cnopts) as sftp:

@@ -20,6 +20,19 @@ def get_table_fields(tabla: str) -> list:
     return fields
 
 
+def busca_rut(rut: str) -> bool:
+    rut_existe = False
+    try:
+        consulta = cursor.execute(f"SELECT COUNT(NEW_RUT) FROM dbo.contact WHERE NEW_RUT = {rut}").fetchall()
+    except Exception as e:
+        print(f'No se puede consultar RUT, error: {e}')
+        return rut_existe
+    count = consulta[0][0]
+    if int(count) >= 1:
+        rut_existe = True
+    return rut_existe
+
+
 def get_comuna(comuna: str) -> str:
     comuna = comuna.upper()
     try:
